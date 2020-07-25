@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 'This Cocoa pod act as a wrapper class for SpaceX API to simplify the API request in iOS application.'
                        DESC
 
-  s.homepage         = 'https://github.com/ksbalaji2000@outlook.com/KSBSpacexKit'
+  s.homepage         = 'https://github.com/SaiBalaji22/KSBSpacexKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'ksbalaji2000@outlook.com' => 'ksbalaji2000@outlook.com' }
-  s.source           = { :git => 'https://github.com/ksbalaji2000@outlook.com/KSBSpacexKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/SaiBalaji22/KSBSpacexKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
