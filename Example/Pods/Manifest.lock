@@ -1,0 +1,16 @@
+PODS:
+  - KSBSpacexKit (0.1.0)
+
+DEPENDENCIES:
+  - KSBSpacexKit (from `../`)
+
+EXTERNAL SOURCES:
+  KSBSpacexKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  KSBSpacexKit: 0b2273d3c2072d8186408447391d99b5b670dec8
+
+PODFILE CHECKSUM: 44cd39b9c38751d6afc389bf47309bcd524261e6
+
+COCOAPODS: 1.9.3

@@ -1,0 +1,6 @@
+framework module Pods_KSBSpacexKit_Example {
+  umbrella header "Pods-KSBSpacexKit_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

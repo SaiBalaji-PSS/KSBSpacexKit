@@ -1,0 +1,22 @@
+{
+  "name": "KSBSpacexKit",
+  "version": "0.1.0",
+  "summary": "A short description of KSBSpacexKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/ksbalaji2000@outlook.com/KSBSpacexKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ksbalaji2000@outlook.com": "ksbalaji2000@outlook.com"
+  },
+  "source": {
+    "git": "https://github.com/ksbalaji2000@outlook.com/KSBSpacexKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "KSBSpacexKit/Classes/**/*"
+}
