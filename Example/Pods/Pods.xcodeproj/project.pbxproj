@@ -12,11 +12,11 @@
 		432E769ACAD706C129C7D19988391DA2 /* KSBSpacexKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 164DAA7139B3A005157AC6C7C9030015 /* KSBSpacexKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4F75261FFA8E380114D34B6404C1B922 /* Pods-KSBSpacexKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 60A2CB3C8C90EFEFF64015F2DFE8F394 /* Pods-KSBSpacexKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6AF579F221004CF74FFC73DDE0A98C62 /* Pods-KSBSpacexKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F24D95CCA79B95F5E22F62F5D66C477E /* Pods-KSBSpacexKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8344EFC5A2A5EA0788795534C328853F /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E076DF042FFCC3B8F7CE2617BA04F4AB /* ReplaceMe.swift */; };
 		9D2AD31E4E958009BED162A093546438 /* Pods-KSBSpacexKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE2420EFCE11A4A09C5AFDE966CA0DE /* Pods-KSBSpacexKit_Example-dummy.m */; };
 		B66A65209440F610C13EB66991F8FF04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		C4C7DD0C37B36D4B8D67230038A069C8 /* Pods-KSBSpacexKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CEAA4ADEBA1E8FAA85F4E408B497C3 /* Pods-KSBSpacexKit_Tests-dummy.m */; };
 		D7A39F737F3C0E2329BB2E6CBA440326 /* KSBSpacexKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E08D37D6B6242CDEF42B43B006198D54 /* KSBSpacexKit-dummy.m */; };
+		E4B53D7324CC82C30018CCEF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B53D7224CC82C30018CCEF /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +62,8 @@
 		D39924A81E39AFA796EA0C4E2CBA6357 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D42A1AC44DE822ED2FD9A7CA1213ED43 /* Pods_KSBSpacexKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KSBSpacexKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D48759CF29C9BAC98AB1FD0A1DA3A2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		E076DF042FFCC3B8F7CE2617BA04F4AB /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = KSBSpacexKit/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
 		E08D37D6B6242CDEF42B43B006198D54 /* KSBSpacexKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KSBSpacexKit-dummy.m"; sourceTree = "<group>"; };
+		E4B53D7224CC82C30018CCEF /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = KSBSpacexKit/Classes/NetworkService.swift; sourceTree = "<group>"; };
 		E5DAAA3E5F337DFDAF9FE0FCFCD06AB1 /* Pods-KSBSpacexKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KSBSpacexKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E73AE134BF34EB46C997BB52120EC02F /* Pods_KSBSpacexKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KSBSpacexKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04994D34F9C0CDC9FCA5F544A33240F /* Pods-KSBSpacexKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KSBSpacexKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -123,9 +123,9 @@
 		62608E82EF1C0DD280558CDAE09DC59C /* KSBSpacexKit */ = {
 			isa = PBXGroup;
 			children = (
-				E076DF042FFCC3B8F7CE2617BA04F4AB /* ReplaceMe.swift */,
 				1D0289B917BEFF0A2CD0D7763CF8CD19 /* Pod */,
 				D1DD66F53BBD1F78A02DC1CF49896A5B /* Support Files */,
+				E4B53D7224CC82C30018CCEF /* NetworkService.swift */,
 			);
 			name = KSBSpacexKit;
 			path = ../..;
@@ -372,8 +372,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B53D7324CC82C30018CCEF /* NetworkService.swift in Sources */,
 				D7A39F737F3C0E2329BB2E6CBA440326 /* KSBSpacexKit-dummy.m in Sources */,
-				8344EFC5A2A5EA0788795534C328853F /* ReplaceMe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AEE71A14934F62B78009786BCC1B4151 /* KSBSpacexKit.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -468,6 +469,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -479,6 +481,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2729DC8A603897F127458042B53125B5 /* KSBSpacexKit.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
