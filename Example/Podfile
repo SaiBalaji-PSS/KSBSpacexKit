@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'KSBSpacexKit_Example' do
+  pod 'KSBSpacexKit', :path => '../'
+
+  target 'KSBSpacexKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
