@@ -37,6 +37,25 @@ class ViewController: UIViewController {
         
         
         
+        NetworkService.sharedobj.getRoadster{roadster in
+            print(roadster.details)
+        }
+        
+        
+        NetworkService.sharedobj.getLaunchPads{(launchpads) in
+            
+            print(launchpads.first!.region)
+            
+        }
+        
+        NetworkService.sharedobj.getStarlinks{(starlinks) in
+            print(starlinks.first!.version.rawValue)
+        }
+        
+        
+        NetworkService.sharedobj.getLatestLaunches{(launches) in
+            print("LATEST LAUNCHES \(launches.details!)")
+        }
         
     
         
