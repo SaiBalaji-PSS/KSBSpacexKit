@@ -9,14 +9,39 @@
 import UIKit
 import KSBSpacexKit
 
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        NetworkService.sharedobj.getCapsules { (capsules) in
+            print(capsules.first!)
+        }
+        
+        NetworkService.sharedobj.getCrewMembers{(crewmembers) in
+            
+            print(crewmembers.first!.name)
+        }
+        
+        NetworkService.sharedobj.getDragons{(dragons) in
+            
+            print(dragons.first!.heatShield.material)
+        }
         
         
-
+        NetworkService.sharedobj.getLandPads{(landpads) in
+            
+            print(landpads.first!.fullName)
+        }
+        
+        
+        
+        
+    
+        
+        
+ 
         
         
     }
