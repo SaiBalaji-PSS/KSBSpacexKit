@@ -15,55 +15,98 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        NetworkService.sharedobj.getCapsules { (capsules) in
-            print(capsules.first!)
-        }
-        
-        NetworkService.sharedobj.getCrewMembers{(crewmembers) in
-            
-            print(crewmembers.first!.name)
-        }
-        
-        NetworkService.sharedobj.getDragons{(dragons) in
-            
-            print(dragons.first!.heatShield.material)
-        }
-        
-        
-        NetworkService.sharedobj.getLandPads{(landpads) in
-            
-            print(landpads.first!.fullName)
-        }
-        
-        
-        
-        NetworkService.sharedobj.getRoadster{roadster in
-            print(roadster.details)
-        }
-        
-        
-        NetworkService.sharedobj.getLaunchPads{(launchpads) in
-            
-            print(launchpads.first!.region)
-            
-        }
-        
-        NetworkService.sharedobj.getStarlinks{(starlinks) in
-            print(starlinks.first!.version.rawValue)
-        }
-        
-        
-        NetworkService.sharedobj.getLatestLaunches{(launches) in
-            print("LATEST LAUNCHES \(launches.details!)")
-        }
+       
         
     
+        SpaceXHub.sharedobj.getCapsules { (capsules, error) in
+            if error == nil
+            {
+                print(capsules.first!.id)
+                print(capsules.first!.landLandings)
+                print(capsules.first!.lastUpdate!)
+                print(capsules.first!.reuseCount)
+                print(capsules.first!.status)
+            }
+            
+        }
+        
+        SpaceXHub.sharedobj.getDragons { (daragons, error) in
+            if error == nil
+            {
+                print(daragons.first!.heatShield)
+                print(daragons.first!.launchPayloadMass)
+                print(daragons.first!.launchPayloadVol)
+                print(daragons.first!.returnPayloadMass)
+                print(daragons.first!.returnPayloadVol)
+            }
+        }
+        
+        SpaceXHub.sharedobj.getCrewMembers { (crew, error) in
+            if error == nil
+            {
+                print(crew.first!.id)
+                print(crew.first!.name)
+                print(crew.first!.agency)
+                print(crew.first!.launches.first!.description)
+                print(crew.first!.image)
+            }
+        }
+        
+            SpaceXHub.sharedobj.getLandPads { (landpads, error) in
+                if error == nil
+                {
+                    print(landpads.first!.id)
+                    print(landpads.first!.fullName)
+                    print(landpads.first!.details)
+                    print(landpads.first!.landingAttempts)
+                    print(landpads.first!.landingSuccesses)
+                    print(landpads.first!.launches.first!.description)
+                    
+                }
+            }
+            
+            
+            SpaceXHub.sharedobj.getLaunchPads { (launchpad, error) in
+                if error == nil
+                {
+                    print(launchpad.first!.id)
+                    print(launchpad.first!.fullName)
+                    print(launchpad.first!.latitude)
+                     print(launchpad.first!.longitude)
+                     print(launchpad.first!.locality)
+                }
+            }
+            
+            SpaceXHub.sharedobj.getRoadster { (roadster, error) in
+                if error == nil
+                {
+                    print(roadster.details)
+                    print(roadster.apoapsisAu)
+                    print(roadster.earthDistanceKM)
+                    print(roadster.epochJd)
+                    print(roadster.flickrImages)
+                }
+            }
+        
+            SpaceXHub.sharedobj.getLatestLaunches { (LatestLaunches, error) in
+                if error == nil
+                {
+                    print(LatestLaunches.cores!.first!.landing_type!)
+                    print(LatestLaunches.links!.reddit!.campaign!)
+                    print(LatestLaunches.details!)
+                }
+            }
+    }
+        
+           
+        
+        
         
         
  
         
         
-    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -71,4 +114,5 @@ class ViewController: UIViewController {
     }
 
 }
+
 

@@ -9,10 +9,10 @@ import Foundation
 
 
 
-public class NetworkService
+public class SpaceXHub
 {
    
-    public  static  let sharedobj = NetworkService()
+    public  static  let sharedobj = SpaceXHub()
     
     let capsuleurl = URL(string: "https://api.spacexdata.com/v4/capsules")
     let crewurl = URL(string: "https://api.spacexdata.com/v4/crew")
@@ -20,8 +20,10 @@ public class NetworkService
     let landpadurl = URL(string: "https://api.spacexdata.com/v4/landpads")
     let roadsterurl = URL(string: "https://api.spacexdata.com/v4/roadster")
     let launchpadurl = URL(string: "https://api.spacexdata.com/v4/launchpads")
-    let starlinkurl = URL(string: "https://api.spacexdata.com/v4/starlink")
+ 
     let latesturl = URL(string: "https://api.spacexdata.com/v4/launches/latest")
+
+    
     
        let session = URLSession(configuration: .default)
     
@@ -29,7 +31,7 @@ public class NetworkService
     
    
     
- public func getCapsules(onCompletion :@escaping(Capsules) -> Void)
+ public func getCapsules(onCompletion :@escaping(Capsules,Error?) -> Void)
     {
      let task = session.dataTask(with: capsuleurl!) { (data, response, error) in
             
@@ -38,7 +40,7 @@ public class NetworkService
                 {
                     let capsules = try JSONDecoder().decode(Capsules.self, from: data!)
                     
-                    onCompletion(capsules)
+                    onCompletion(capsules,error)
                     
                     
                     
@@ -56,7 +58,7 @@ public class NetworkService
         task.resume()
     }
     
-    public func getLatestLaunches(onCompletion :@escaping(LatestLaunches) -> Void)
+    public func getLatestLaunches(onCompletion :@escaping(LatestLaunches,Error?) -> Void)
     {
      let task = session.dataTask(with: latesturl!) { (data, response, error) in
             
@@ -65,7 +67,7 @@ public class NetworkService
                 {
                     let llaunches = try JSONDecoder().decode(LatestLaunches.self, from: data!)
                     
-                    onCompletion(llaunches)
+                    onCompletion(llaunches,error)
                     
                     
                     
@@ -85,32 +87,7 @@ public class NetworkService
     
     
     
-    public func getStarlinks(onCompletion :@escaping(StarLinks) -> Void)
-       {
-        let task = session.dataTask(with: starlinkurl!) { (data, response, error) in
-               
-               DispatchQueue.main.async {
-                   do
-                   {
-                       let starlinks = try JSONDecoder().decode(StarLinks.self, from: data!)
-                       
-                       onCompletion(starlinks)
-                       
-                       
-                       
-                   }
-                   
-                   catch
-                   {
-                       print(error.localizedDescription)
-                   }
-               }
-           
-               
-           }
-           
-           task.resume()
-       }
+  
     
     
     
@@ -126,8 +103,7 @@ public class NetworkService
     
     
     
-    
-    public func getLaunchPads(onCompletion: @escaping(LaunchPads)->Void)
+    public func getLaunchPads(onCompletion: @escaping(LaunchPads,Error?)->Void)
     {
         let task = session.dataTask(with: launchpadurl!) { (data, response, error) in
             
@@ -136,7 +112,7 @@ public class NetworkService
                 {
                     let launchpads = try JSONDecoder().decode(LaunchPads.self, from: data!)
                     
-                    onCompletion(launchpads)
+                    onCompletion(launchpads,error)
                     
                     
                 }
@@ -156,7 +132,7 @@ public class NetworkService
     }
     
     
-    public func getCrewMembers(onCompletion: @escaping(Crews)->Void)
+    public func getCrewMembers(onCompletion: @escaping(Crews,Error?)->Void)
     {
         let task = session.dataTask(with: crewurl!) { (data, response, error) in
             
@@ -165,7 +141,7 @@ public class NetworkService
                 {
                     let crewmemvers = try JSONDecoder().decode(Crews.self, from: data!)
                     
-                    onCompletion(crewmemvers)
+                    onCompletion(crewmemvers,error)
                     
                     
                 }
@@ -185,7 +161,7 @@ public class NetworkService
     }
     
     
-    public func getDragons(onCompletion :@escaping(Dragonss) -> Void)
+    public func getDragons(onCompletion :@escaping(Dragonss,Error?) -> Void)
        {
         let task = session.dataTask(with: dragonurl!) { (data, response, error) in
                
@@ -194,7 +170,7 @@ public class NetworkService
                    {
                        let dgs = try JSONDecoder().decode(Dragonss.self, from: data!)
                        
-                       onCompletion(dgs)
+                       onCompletion(dgs,error)
                        
                        
                        
@@ -212,7 +188,7 @@ public class NetworkService
            task.resume()
        }
        
-    public func getRoadster(onCompletion:@escaping(Roadster)->Void)
+    public func getRoadster(onCompletion:@escaping(Roadster,Error?)->Void)
     {
         let task = session.dataTask(with: roadsterurl!) { (data, response, error) in
                           
@@ -221,7 +197,7 @@ public class NetworkService
                               {
                                   let rd = try JSONDecoder().decode(Roadster.self, from: data!)
                                   
-                                  onCompletion(rd)
+                                  onCompletion(rd,error)
                                   
                                   
                               }
@@ -242,7 +218,7 @@ public class NetworkService
     
     
     
-   public func getLandPads(onCompletion:@escaping(Landpads)->Void)
+   public func getLandPads(onCompletion:@escaping(Landpads,Error?)->Void)
     {
         let task = session.dataTask(with: landpadurl!) { (data, response, error) in
                    
@@ -251,7 +227,7 @@ public class NetworkService
                        {
                            let lps = try JSONDecoder().decode(Landpads.self, from: data!)
                            
-                           onCompletion(lps)
+                           onCompletion(lps,error)
                            
                            
                        }
@@ -270,6 +246,9 @@ public class NetworkService
                task.resume()
         
     }
+    
+    
+      
     
     
     
@@ -543,184 +522,6 @@ public struct LaunchPad: Codable {
 }
 
 public typealias LaunchPads = [LaunchPad]
-
-
-
-
-
-
-
- public    struct StarLink: Codable  {
-public    let spaceTrack: SpaceTrack
- public   let version: Version
-public    let launch: Launch
- public   let longitude, latitude, heightKM, velocityKms: Double?
- public   let id: String
-
-public    enum CodingKeys: String, CodingKey {
-        case spaceTrack, version, launch, longitude, latitude
-        case heightKM = "height_km"
-        case velocityKms = "velocity_kms"
-        case id
-    }
-}
-
-public enum Launch: String, Codable {
-    case the5Eb87D14Ffd86E000604B361 = "5eb87d14ffd86e000604b361"
-    case the5Eb87D30Ffd86E000604B378 = "5eb87d30ffd86e000604b378"
-    case the5Eb87D39Ffd86E000604B37D = "5eb87d39ffd86e000604b37d"
-    case the5Eb87D3Cffd86E000604B380 = "5eb87d3cffd86e000604b380"
-    case the5Eb87D3Fffd86E000604B382 = "5eb87d3fffd86e000604b382"
-    case the5Eb87D41Ffd86E000604B383 = "5eb87d41ffd86e000604b383"
-    case the5Eb87D43Ffd86E000604B385 = "5eb87d43ffd86e000604b385"
-    case the5Eb87D44Ffd86E000604B386 = "5eb87d44ffd86e000604b386"
-    case the5Eb87D45Ffd86E000604B387 = "5eb87d45ffd86e000604b387"
-    case the5Eb87D46Ffd86E000604B389 = "5eb87d46ffd86e000604b389"
-}
-
-// MARK: - SpaceTrack
-public struct SpaceTrack: Codable {
-  public  let ccsdsOmmVers: String
-public    let comment: Comment
-public    let creationDate: CreationDate
-public    let originator: Originator
-public    let objectName, objectID: String
-public    let centerName: CenterName
-public    let refFrame: RefFrame
-public    let timeSystem: TimeSystem
-public    let meanElementTheory: MeanElementTheory
-public    let epoch: String
-public    let meanMotion, eccentricity, inclination, raOfAscNode: Double
-public    let argOfPericenter, meanAnomaly: Double
-public    let ephemerisType: Int
-public    let classificationType: ClassificationType
-public    let noradCatID, elementSetNo, revAtEpoch: Int
-public    let bstar, meanMotionDot, meanMotionDdot, semimajorAxis: Double
-public    let period, apoapsis, periapsis: Double
-public    let objectType: ObjectType
-public    let rcsSize: RCSSize
- public   let countryCode: CountryCode
-public    let launchDate: String
- public   let site: Site
- public   let decayDate: String?
-  public  let decayed, file, gpID: Int
- public   let tleLine0, tleLine1, tleLine2: String
-
- public   enum CodingKeys: String, CodingKey {
-        case ccsdsOmmVers = "CCSDS_OMM_VERS"
-        case comment = "COMMENT"
-        case creationDate = "CREATION_DATE"
-        case originator = "ORIGINATOR"
-        case objectName = "OBJECT_NAME"
-        case objectID = "OBJECT_ID"
-        case centerName = "CENTER_NAME"
-        case refFrame = "REF_FRAME"
-        case timeSystem = "TIME_SYSTEM"
-        case meanElementTheory = "MEAN_ELEMENT_THEORY"
-        case epoch = "EPOCH"
-        case meanMotion = "MEAN_MOTION"
-        case eccentricity = "ECCENTRICITY"
-        case inclination = "INCLINATION"
-        case raOfAscNode = "RA_OF_ASC_NODE"
-        case argOfPericenter = "ARG_OF_PERICENTER"
-        case meanAnomaly = "MEAN_ANOMALY"
-        case ephemerisType = "EPHEMERIS_TYPE"
-        case classificationType = "CLASSIFICATION_TYPE"
-        case noradCatID = "NORAD_CAT_ID"
-        case elementSetNo = "ELEMENT_SET_NO"
-        case revAtEpoch = "REV_AT_EPOCH"
-        case bstar = "BSTAR"
-        case meanMotionDot = "MEAN_MOTION_DOT"
-        case meanMotionDdot = "MEAN_MOTION_DDOT"
-        case semimajorAxis = "SEMIMAJOR_AXIS"
-        case period = "PERIOD"
-        case apoapsis = "APOAPSIS"
-        case periapsis = "PERIAPSIS"
-        case objectType = "OBJECT_TYPE"
-        case rcsSize = "RCS_SIZE"
-        case countryCode = "COUNTRY_CODE"
-        case launchDate = "LAUNCH_DATE"
-        case site = "SITE"
-        case decayDate = "DECAY_DATE"
-        case decayed = "DECAYED"
-        case file = "FILE"
-        case gpID = "GP_ID"
-        case tleLine0 = "TLE_LINE0"
-        case tleLine1 = "TLE_LINE1"
-        case tleLine2 = "TLE_LINE2"
-    }
-}
-
-public enum CenterName: String, Codable {
-    case earth = "EARTH"
-}
-
-public enum ClassificationType: String, Codable {
-    case u = "U"
-}
-
-public enum Comment: String, Codable {
-    case generatedViaSpaceTrackOrgAPI = "GENERATED VIA SPACE-TRACK.ORG API"
-}
-
-public enum CountryCode: String, Codable {
-    case us = "US"
-}
-
-public enum CreationDate: String, Codable {
-    case the20200220213625 = "2020-02-20 21:36:25"
-    case the20200309224617 = "2020-03-09 22:46:17"
-    case the20200402181105 = "2020-04-02 18:11:05"
-    case the20200527095608 = "2020-05-27 09:56:08"
-    case the20200529070609 = "2020-05-29 07:06:09"
-    case the20200714145608 = "2020-07-14 14:56:08"
-    case the20200724062610 = "2020-07-24 06:26:10"
-    case the20200725221609 = "2020-07-25 22:16:09"
-    case the20200725222610 = "2020-07-25 22:26:10"
-    case the20200725223610 = "2020-07-25 22:36:10"
-    case the20200726022725 = "2020-07-26 02:27:25"
-    case the20200726061609 = "2020-07-26 06:16:09"
-    case the20200726062610 = "2020-07-26 06:26:10"
-}
-
-public enum MeanElementTheory: String, Codable {
-    case sgp4 = "SGP4"
-}
-
-public enum ObjectType: String, Codable {
-    case payload = "PAYLOAD"
-}
-
-public enum Originator: String, Codable {
-    case the18Spcs = "18 SPCS"
-}
-
-public enum RCSSize: String, Codable {
-    case large = "LARGE"
-    case medium = "MEDIUM"
-}
-
-public enum RefFrame: String, Codable {
-    case teme = "TEME"
-}
-
-public enum Site: String, Codable {
-    case afetr = "AFETR"
-    case afwtr = "AFWTR"
-}
-
-public enum TimeSystem: String, Codable {
-    case utc = "UTC"
-}
-
-public enum Version: String, Codable {
-    case prototype = "prototype"
-    case v09 = "v0.9"
-    case v10 = "v1.0"
-}
-
-public typealias StarLinks = [StarLink]
-
 
 
 
