@@ -1,7 +1,7 @@
 ![Group 1](https://user-images.githubusercontent.com/51410810/88533915-a7276b80-d024-11ea-9f59-4c6546f7da4d.png)
 
 
-# KSBSpacexKit
+# KSBSpacexKit - A wrapper for SpaceX REST API V4
 
 [![CI Status](https://img.shields.io/travis/ksbalaji2000@outlook.com/KSBSpacexKit.svg?style=flat)](https://travis-ci.org/ksbalaji2000@outlook.com/KSBSpacexKit)
 [![Version](https://img.shields.io/cocoapods/v/KSBSpacexKit.svg?style=flat)](https://cocoapods.org/pods/KSBSpacexKit)
