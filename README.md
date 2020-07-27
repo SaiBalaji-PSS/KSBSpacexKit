@@ -15,6 +15,8 @@ https://cocoapods.org/pods/KSBSpacexKit
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+.Xcode </br>
+.CocoaPod </br>
 
 ## Installation
 
