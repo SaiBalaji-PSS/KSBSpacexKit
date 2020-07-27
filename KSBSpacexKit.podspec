@@ -9,6 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'KSBSpacexKit'
   s.version          = '0.1.0'
+  s.swift_version = '5.2'
   s.summary          = 'A wrapper for SpaceX REST API'
 
 # This description is used to generate tags and improve search results.
