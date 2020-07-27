@@ -88,14 +88,25 @@ class ViewController: UIViewController {
                 }
             }
         
-            SpaceXHub.sharedobj.getLatestLaunches { (LatestLaunches, error) in
-                if error == nil
-                {
-                    print(LatestLaunches.cores!.first!.landing_type!)
-                    print(LatestLaunches.links!.reddit!.campaign!)
-                    print(LatestLaunches.details!)
-                }
-            }
+          
+        
+       SpaceXHub.sharedobj.getStarlinks { (w, e) in
+                   print(w.first!.spaceTrack.countryCode)
+                   
+                
+               }
+        
+        
+        SpaceXHub.sharedobj.getShips{(s,e) in
+            print("HOME PORT \(s.first!.homePort.rawValue)")
+            print(s.first!.id)
+            print(s.first!.active)
+            
+        }
+        
+        
+        
+        
     }
         
            
