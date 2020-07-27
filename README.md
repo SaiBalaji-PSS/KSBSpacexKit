@@ -25,6 +25,19 @@ it, simply add the following line to your Podfile:
 pod 'KSBSpacexKit'
 ```
 
+##  To get all Dragons
+```swift
+ SpaceXHub.sharedobj.getDragons { (daragons, error) in
+            if error == nil
+            {
+                print(daragons.first!.heatShield)
+                print(daragons.first!.launchPayloadMass)
+                print(daragons.first!.launchPayloadVol)
+                print(daragons.first!.returnPayloadMass)
+                print(daragons.first!.returnPayloadVol)
+            }
+        }
+```
 ## Author
 
 ksbalaji2000@outlook.com, ksbalaji2000@outlook.com
