@@ -10,17 +10,30 @@ import UIKit
 import KSBSpacexKit
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    
 
+    var capsulesss = [Capsule]()
+    
+    @IBOutlet weak var capsuletv: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        
+        capsuletv.dataSource = self
+        capsuletv.delegate = self
+        
        
         
     
         SpaceXHub.sharedobj.getCapsules { (capsules, error) in
             if error == nil
             {
+                
+                self.capsulesss = capsules
+                self.capsuletv.reloadData()
                 print(capsules.first!.id)
                 print(capsules.first!.landLandings)
                 print(capsules.first!.lastUpdate!)
@@ -122,6 +135,28 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return capsulesss.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        {
+            cell.textLabel?.text = capsulesss[indexPath.row].id
+            
+            return cell
+        }
+        
+        return UITableViewCell()
+        
+        
     }
 
 }
