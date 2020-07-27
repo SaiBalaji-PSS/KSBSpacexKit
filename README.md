@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/KSBSpacexKit.svg?style=flat)](https://cocoapods.org/pods/KSBSpacexKit)
 [![Platform](https://img.shields.io/cocoapods/p/KSBSpacexKit.svg?style=flat)](https://cocoapods.org/pods/KSBSpacexKit)
 
+https://cocoapods.org/pods/KSBSpacexKit
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
