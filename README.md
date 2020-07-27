@@ -114,7 +114,19 @@ SpaceXHub.sharedobj.getShips{(s,e) in
             
         }
 ```
-
+## To get all Launchpads data
+```swift
+ SpaceXHub.sharedobj.getLaunchPads { (launchpad, error) in
+                if error == nil
+                {
+                    print(launchpad.first!.id)
+                    print(launchpad.first!.fullName)
+                    print(launchpad.first!.latitude)
+                     print(launchpad.first!.longitude)
+                     print(launchpad.first!.locality)
+                }
+            }
+```
 
 
 
