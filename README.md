@@ -25,7 +25,7 @@ it, simply add the following line to your Podfile:
 pod 'KSBSpacexKit'
 ```
 
-##  To get all Dragons
+##  To get all dragons data
 ```swift
  SpaceXHub.sharedobj.getDragons { (daragons, error) in
             if error == nil
@@ -38,6 +38,86 @@ pod 'KSBSpacexKit'
             }
         }
 ```
+
+## To get all  crew members data
+```swift
+   SpaceXHub.sharedobj.getCrewMembers { (crew, error) in
+            if error == nil
+            {
+                print(crew.first!.id)
+                print(crew.first!.name)
+                print(crew.first!.agency)
+                print(crew.first!.launches.first!.description)
+                print(crew.first!.image)
+            }
+        }
+
+```
+
+## To get all capsule data
+```swift
+  SpaceXHub.sharedobj.getCapsules { (capsules, error) in
+            if error == nil
+            {
+                print(capsules.first!.id)
+                print(capsules.first!.landLandings)
+                print(capsules.first!.lastUpdate!)
+                print(capsules.first!.reuseCount)
+                print(capsules.first!.status)
+            }
+            
+        }
+```
+## To get all landpads data
+```swift
+ SpaceXHub.sharedobj.getLandPads { (landpads, error) in
+                if error == nil
+                {
+                    print(landpads.first!.id)
+                    print(landpads.first!.fullName)
+                    print(landpads.first!.details)
+                    print(landpads.first!.landingAttempts)
+                    print(landpads.first!.landingSuccesses)
+                    print(landpads.first!.launches.first!.description)
+                    
+                }
+            }
+```
+
+## To get all data about Tesla Roadster
+```swift
+      SpaceXHub.sharedobj.getRoadster { (roadster, error) in
+                if error == nil
+                {
+                    print(roadster.details)
+                    print(roadster.apoapsisAu)
+                    print(roadster.earthDistanceKM)
+                    print(roadster.epochJd)
+                    print(roadster.flickrImages)
+                }
+            }
+```
+## To get all Starlinks data
+```swift
+ SpaceXHub.sharedobj.getStarlinks { (w, e) in
+                   print(w.first!.spaceTrack.countryCode)
+                   
+                
+               }
+```
+## To get all Ships data
+```swift
+SpaceXHub.sharedobj.getShips{(s,e) in
+            print("HOME PORT \(s.first!.homePort.rawValue)")
+            print(s.first!.id)
+            print(s.first!.active)
+            
+        }
+```
+
+
+
+
 ## Author
 
 ksbalaji2000@outlook.com, ksbalaji2000@outlook.com
