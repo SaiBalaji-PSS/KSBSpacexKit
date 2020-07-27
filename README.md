@@ -120,7 +120,7 @@ SpaceXHub.sharedobj.getShips{(s,e) in
 
 ## Author
 
-ksbalaji2000@outlook.com, ksbalaji2000@outlook.com
+ksbalaji2000@outlook.com
 
 ## License
 
