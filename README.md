@@ -27,21 +27,21 @@ it, simply add the following line to your Podfile:
 pod 'KSBSpacexKit'
 ```
 
-##  To get all dragons data
+##  To get all Dragons data
 ```swift
- SpaceXHub.sharedobj.getDragons { (daragons, error) in
+ SpaceXHub.sharedobj.getDragons { (dragons, error) in
             if error == nil
             {
-                print(daragons.first!.heatShield)
-                print(daragons.first!.launchPayloadMass)
-                print(daragons.first!.launchPayloadVol)
-                print(daragons.first!.returnPayloadMass)
-                print(daragons.first!.returnPayloadVol)
+                print(dragons.first!.heatShield)
+                print(dragons.first!.launchPayloadMass)
+                print(dragons.first!.launchPayloadVol)
+                print(dragons.first!.returnPayloadMass)
+                print(dragons.first!.returnPayloadVol)
             }
         }
 ```
 
-## To get all  crew members data
+## To get all crew members data
 ```swift
    SpaceXHub.sharedobj.getCrewMembers { (crew, error) in
             if error == nil
@@ -107,7 +107,7 @@ pod 'KSBSpacexKit'
                 
                }
 ```
-## To get all Ships data
+## To get all ships data
 ```swift
 SpaceXHub.sharedobj.getShips{(s,e) in
             print("HOME PORT \(s.first!.homePort.rawValue)")
@@ -116,7 +116,7 @@ SpaceXHub.sharedobj.getShips{(s,e) in
             
         }
 ```
-## To get all Launchpads data
+## To get all launchpads data
 ```swift
  SpaceXHub.sharedobj.getLaunchPads { (launchpad, error) in
                 if error == nil
